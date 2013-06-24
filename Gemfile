@@ -9,6 +9,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'jquery-rails'
 gem 'gravatar_image_tag'
+gem 'pony'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
