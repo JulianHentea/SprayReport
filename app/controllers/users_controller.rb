@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
+    @user.email_verification_token = rand(10 ** 8)
     if @user.save
       sign_in @user
       Pony.mail(
@@ -42,7 +43,7 @@ class UsersController < ApplicationController
         subject: "Thanks for registering",
         body:    "Please click the following link to verify your email address:
 
-")
+#{verify_email_url(@user.id, @user.email_verification_token)}")
       
       redirect_to @user, :flash => { :success => "Welcome to the party!" }
     else
@@ -55,6 +56,24 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @title = "Edit user"
   end
+  
+  def verify_email
+    user = User.where(id: params[:user_id]).first
+    if user != nil
+      if user.email_verification_token == params[:token]
+        user.was_email_verified = true
+        user.save!
+        flash[:success] = "Email has been verified."
+        session[:logged_in_user_id] = user.id
+      else
+        flash[:error] = "Wrong email verification token"
+      end
+      redirect_to users_path and return
+    else
+      flash[:error] = "Couldn't find user with that ID"
+    end
+  end
+  
   
   def update
     if @user.update_attributes(user_params)
@@ -86,7 +105,7 @@ class UsersController < ApplicationController
 
     def user_params
        params.require(:user).permit(:name, :email, :password,
-                                      :password_confirmation)
+                                      :password_confirmation, :email_verification_token, :was_email_verified)
     end
 
 end
