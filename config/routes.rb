@@ -16,7 +16,7 @@ SprayReport::Application.routes.draw do
   get '/about',   to: 'pages#about'
   get '/contact', to: 'pages#contact'
   
-  get "/verify_email/:user_id/:token", to: "users#verify_email", as: "verify_email"
+  get "/users/:id/:token", to: "users#verify_email", as: "verify_email"
   
   get '/signup',  to: 'users#new'
   get '/signin',  to: 'sessions#new'

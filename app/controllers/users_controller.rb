@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
-  before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
-  before_filter :correct_user, :only => [:edit, :update]
-  before_filter :admin_user,   :only => [:destroy]
+  before_filter :authenticate,     :only => [:index, :edit, :update, :destroy]
+  before_filter :correct_user,     :only => [:edit, :update]
+  before_filter :admin_user,       :only => [:destroy]
+  before_filter :verify_email,     :only => [:was_email_verified]
+  
+  
   
   def index
     @users = User.paginate(:page => params[:page])
@@ -58,19 +61,21 @@ class UsersController < ApplicationController
   end
   
   def verify_email
-    user = User.where(id: params[:user_id]).first
-    if user != nil
-      if user.email_verification_token == params[:token]
-        user.was_email_verified = true
-        user.save!
-        flash[:success] = "Email has been verified."
-        session[:logged_in_user_id] = user.id
+    @user = User.find(params[:id])
+    if @user != nil
+      if @user.email_verification_token == params[:token]
+        @user.was_email_verified = true
+        @user.save!(:validate => false)
+        flash[:success] = "Email has been verified." 
+        
+        sign_in @user
       else
         flash[:error] = "Wrong email verification token"
       end
-      redirect_to users_path and return
+      redirect_to @user
     else
-      flash[:error] = "Couldn't find user with that ID"
+      flash[:error] =  "Couldn't find user with that ID" 
+      redirect_to(signup_path)
     end
   end
   
@@ -86,8 +91,7 @@ class UsersController < ApplicationController
   
   def destroy
     User.find(params[:id]).destroy
-    redirect_to users_path, :flash => { :success =>"User destroyed." }
-    
+    redirect_to users_path, :flash => { :success =>"User destroyed." } 
   end
   
   private
