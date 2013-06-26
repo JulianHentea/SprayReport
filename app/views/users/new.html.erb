@@ -1,9 +1,27 @@
-<h1>Sign up</h1>
+<% provide(:title, "Sign Up") %>
+<!-- Main Area -->
+<div class="main-area">
+	<div class="container">
+		<div class="row">
+			<div class="span8">
+				<div class="page">
+					<h1>Sign Up</br><small>Create a profile and share your climbing stories!</small></h1>
 
-<%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>
-	<%= render 'fields', :f => f %>
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>  
-<% end %>
+					<div class="row">
+					  <div class="span6 offset3">
+					    <%= form_for(@user) do |f| %>
+							  <%= render 'shared/error_messages', :object => f.object %>
+								<%= render 'fields', :f => f %>
+							  <div class="actions">
+							    <%= f.submit "Sign up", class: "btn btn-large btn-primary" %>
+							  </div>  
+							<% end %>
+					  </div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+<!-- End Main Area -->
+</div>

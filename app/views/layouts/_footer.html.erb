@@ -1,12 +1,52 @@
-<footer class="footer">
-  <small>
-    <a href="#">SprayReport</a>
-  </small>
-  <nav>
-    <ul>
-      <li><%= link_to "About",   about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
-      <li><a href="#">News</a></li>
-    </ul>
-  </nav>
-</footer>
+<!-- Footer -->
+<div class="footer-bar">
+	<div class="container">
+		
+		<div class="row">
+		
+			<div class="span3">
+			
+				<p class="logo pull-left"<%= link_to "Spray Repost ", root_path, id: "logo" %></p>
+				
+				<li><%= link_to "Home", root_path %></li>
+		    <li><%= link_to "Help", help_path %></li>
+		    <% if signed_in? %>
+		      <li><%= link_to "Users", users_path %></li>
+		      <li id="fat-menu" class="dropdown">
+		        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+		          Account <b class="caret"></b>
+		        </a>
+		        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+		          <li><%= link_to "Profile", current_user %></li>
+		          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+		          <li class="divider"></li>
+		          <li>
+		            <%= link_to "Sign out", signout_path, method: "delete" %>
+		          </li>
+		        </ul>
+		      </li>
+		    <% else %>
+		      <li><%= link_to "Sign in", signin_path %></li>
+		    <% end %>
+			</ul>
+				
+			</div>
+			
+			<div class="span3">
+			
+				<p class="logo">About<span>Us</span></p>
+				
+				<p>Suspendisse diam urna, pretium eu eleifend vel, convallis quis libero.</p>
+				
+				  <ul>
+			      <li><%= link_to "About",   about_path %></li>
+			      <li><%= link_to "Contact", contact_path %></li>
+			      <li><a href="#">News</a></li>
+			    </ul>
+				
+			</div>
+	
+		</div>
+	</div>
+<!-- End Footer -->
+</div>

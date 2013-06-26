@@ -1,0 +1,38 @@
+<% provide(:title, "Home Page") %>
+	
+
+<!-- Main Area -->
+<div class="main-area">
+	<div class="container">
+		<div class="row">
+			<div class="span8">
+				
+				<h1>Content <small>A template for generic content</small></h1>
+				
+				<div class="row">
+					
+					<div class="span8">
+						<div class="page">
+							<h2>Share a story</h2>
+							<%= render 'shared/post_form' %>
+							<div class="row">
+							<%= render 'shared/feed' %>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+			<div class="span4 sidebar">
+				<% if signed_in? %>
+					<%= render 'shared/user_info' %>
+			   	<%= render 'shared/stats' %>
+				<% end %>
+				
+			</div>
+		</div>
+	</div>
+<!-- End Main Area -->
+</div>

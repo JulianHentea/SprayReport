@@ -1,0 +1,17 @@
+<div class="span4 sidebar">
+		<div class="row">
+			<div class="span4 side-nav sign-up">
+					
+			</div>
+		</div>
+	
+	<div class="row">
+		<div class="span4">
+			<strong>Name</strong> <%= @user.name %><br />
+      <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
+      <strong>Posts</strong> <%= @user.posts.count %>
+			<%= render 'shared/stats' %>
+		</div>
+	</div>
+	
+</div>

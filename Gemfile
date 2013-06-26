@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.rc2'
-gem 'bootstrap-sass'
+#gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'faker'
 gem 'will_paginate'
@@ -23,6 +23,10 @@ group :development, :test do
 end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0.rc2'
+gem 'twitter-bootstrap-rails'
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

@@ -65,9 +65,8 @@ class UsersController < ApplicationController
     if @user != nil
       if @user.email_verification_token == params[:token]
         @user.was_email_verified = true
-        @user.save!(:validate => false)
-        flash[:success] = "Email has been verified." 
-        
+        @user.save!
+        flash[:success] = "Email has been verified."
         sign_in @user
       else
         flash[:error] = "Wrong email verification token"
