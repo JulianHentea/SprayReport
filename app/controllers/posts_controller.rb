@@ -25,6 +25,7 @@ class PostsController < ApplicationController
     end
   end
   
+  
   def edit
     @post = Post.find(params[:id])
     @title = "Edit Story"
@@ -53,7 +54,7 @@ class PostsController < ApplicationController
     
     private
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :tag_list)
     end
 end
 

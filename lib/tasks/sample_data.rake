@@ -30,7 +30,7 @@ end
 def make_posts
   50.times do
     User.all(:limit => 6).each do |user|
-      user.posts.create!(:content => Faker::Lorem.sentence(5))
+      user.posts.create!(:title => "Faker::Lorem.sentence(1)",:content => Faker::Lorem.sentence(5))
     end
   end
 end

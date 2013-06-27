@@ -1,4 +1,5 @@
 SprayReport::Application.routes.draw do
+  root :to => "pages#home"
   
   resources :users do
     member do
@@ -15,8 +16,11 @@ SprayReport::Application.routes.draw do
   resources :posts
   resources :relationships, :only => [:create, :destroy]
   
-  root :to => "pages#home"
-
+  get 'tags/:tag', to: 'tags#index', as: :tags
+  
+  get 'tag', to: 'tags#show', as: :tag
+  
+    
   get '/help',    to: 'pages#help'
   get '/about',   to: 'pages#about'
   get '/contact', to: 'pages#contact'

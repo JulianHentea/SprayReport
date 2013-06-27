@@ -10,8 +10,13 @@
 					<div class="row">
 					  <div class="span6 offset1">
 					    <%= form_for(@post) do |f| %>
-							  <%= render 'shared/error_messages', :object => f.object %>
-							  <%= render 'shared/post_form' %>
+							<%= render 'shared/error_messages', :object => f.object %>
+							<p>
+							<%= f.text_field :title, placeholder: "Enter a title..." %>
+							</p>
+							<p><%= f.text_area :content, placeholder: "Compose new a new story..." %></p>
+							<p><%= f.text_field :tag_list, placeholder: "Tags (separated by commas)" %></p>
+							<%= f.submit "Update your story", class: "btn btn-large btn-primary" %>
 							<% end %>
 
 					  </div>

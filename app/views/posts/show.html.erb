@@ -14,7 +14,7 @@
 						<div class="page">
 							<h1> <%= @post.title %> </h1>
 							<p><%= @post.content %> </p>
-
+Tags: <%= raw @post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
 							<h3>Comments (<%= @post.comments.size %>)</h3>
 							<%= render partial: 'posts/comment', collection: @post.comments %>
 							<%= render partial: 'posts/comments/form' %>

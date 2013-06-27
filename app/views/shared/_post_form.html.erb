@@ -8,6 +8,9 @@
 		<p>
     	<%= f.text_area :content, placeholder: "Compose new a new story..." %>
   	</p>
+		<div class="field">
+		  <%= f.text_field :tag_list, placeholder: "Tags (separated by commas)"%>
+		</div>
 	</div>
   <%= f.submit "Update your story", class: "btn btn-large btn-primary" %>
 <% end %>
