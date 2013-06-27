@@ -12,9 +12,10 @@ end
 
 def make_users
   admin = User.create!(:name => "Example User",
-                       :email => "example@railstutorial.org",
+                       :email => "example@example.com",
                        :password => "foobar",
-                       :password_confirmation => "foobar")
+                       :password_confirmation => "foobar",
+                        )
   admin.toggle!(:admin)
   99.times do |n|
     name = Faker::Name.name
@@ -30,7 +31,7 @@ end
 def make_posts
   50.times do
     User.all(:limit => 6).each do |user|
-      user.posts.create!(:title => "Faker::Lorem.sentence(1)",:content => Faker::Lorem.sentence(5))
+      user.posts.create!(:title => "Story title", :content => Faker::Lorem.sentence(5))
     end
   end
 end

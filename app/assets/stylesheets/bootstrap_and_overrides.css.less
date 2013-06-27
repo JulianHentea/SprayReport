@@ -40,6 +40,10 @@ body {
 	color: #999;
 }
 
+ol {
+  list-style: none;
+}
+
 .row {
  margin-left: 0px;
 }
@@ -52,6 +56,14 @@ h1 {
 	font-weight: 400;
 	padding: 0;
 	margin: 0 0 20px 0;
+}
+.page h2 {
+	color: #F90606;
+	font-size: 16px;
+	font-family: Quicksand, sans-serif;
+	font-weight: 600;
+	padding: 0;
+	margin: 30px 0 6px 0 !important;
 }
 
 /* Header */
@@ -135,7 +147,44 @@ h1 {
 }
 
 .post .summary {
-	padding: 0 2px;
+	padding: 0 2px;	
+}
+.feed-item{
+	border-top: 1px solid #DDD;
+	padding: 20px 0 20px 0;
+	margin-bottom: 20px;
+	
+}
+.summary {
+	padding: 0 2px 20px 0;
+	color: #3D3D3D;
+}
+.user-summary a {
+ font-size: 25px;
+ padding-left: 25px;
+ letter-spacing: 1px;
+ color: #F90606;
+ font-weight: 200;
+}
+.story-edit a{
+font-size: 14px;
+letter-spacing: 1px;
+color: #FFF;
+}
+.story-edit {
+  padding-right: 100px;
+}
+
+.user-summary-links{
+	padding-bottom: 10px;
+  padding-top: 20px;
+}
+.user-summary  {
+  background-color: #325771;
+}
+
+.timestamp{
+  float: right;
 }
 
 .post .meta {
@@ -247,7 +296,9 @@ ol.comments li.comment .meta {
 .side-nav ul {
 	margin: 0;
 }
-
+.user-stats{
+  margin-bottom: 30px;
+}
 .side-nav ul li.title a {
 	font-weight: 700;
 	color: #444;
@@ -289,6 +340,7 @@ ol.comments li.comment .meta {
 	border: 20px solid #FFF;
 	border-radius: 2px;
 	margin-top: -300px;
+	 padding-top: 30px;
 	position: relative;
 	z-index: 2;
 }

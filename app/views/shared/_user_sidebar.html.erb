@@ -1,17 +1,9 @@
-<div class="span4 sidebar">
-		<div class="row">
-			<div class="span4 side-nav sign-up">
-					
-			</div>
-		</div>
-	
-	<div class="row">
-		<div class="span4">
-			<strong>Name</strong> <%= @user.name %><br />
-      <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
-      <strong>Posts</strong> <%= @user.posts.count %>
-			<%= render 'shared/stats' %>
-		</div>
-	</div>
-	
-</div>
+
+		<ul class="nav nav-list">
+    	<li class="active"><%= link_to "Home", root_path, 
+			class: "btn btn-large btn-block btn-primary icon-home icon-white" %></li>
+    <li><%= link_to " Manage stories", edit_user_path(current_user),
+			class: "btn btn-large btn-block icon-book" %></li>
+    <li><%= link_to " New Story", new_post_path, 
+			class: " btn btn-large btn-block icon-pencil" %></li>
+    </ul>

@@ -16,7 +16,7 @@ SprayReport::Application.routes.draw do
   resources :posts
   resources :relationships, :only => [:create, :destroy]
   
-  get 'tags/:tag', to: 'tags#index', as: :tags
+  get 'tags', to: 'tags#index', as: :tags
   
   get 'tag', to: 'tags#show', as: :tag
   
