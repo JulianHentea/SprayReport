@@ -1,14 +1,14 @@
-<% provide(:title, "Edit Profile") %>
+<% provide(:title, "Edit your story") %>
 <!-- Main Area -->
 <div class="main-area">
 	<div class="container">
 		<div class="row">
 			<div class="span8">
 				<div class="page">
-					<h1>Edit your profile</br><small></small></h1>
+					<h1>Edit your story</br><small></small></h1>
 
 					<div class="row">
-					  <div class="span6 offset3">
+					  <div class="span6 offset1">
 					    <%= form_for(@post) do |f| %>
 							  <%= render 'shared/error_messages', :object => f.object %>
 							  <%= render 'shared/post_form' %>

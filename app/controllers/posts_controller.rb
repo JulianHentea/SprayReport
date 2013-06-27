@@ -7,7 +7,13 @@ class PostsController < ApplicationController
    @post = Post.new
    @title = "New story"
   end
-
+  
+  def show
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+    @comment.post_id = @post.id
+  end
+    
   
   def create
     @post = current_user.posts.build(post_params)

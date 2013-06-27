@@ -6,6 +6,11 @@ SprayReport::Application.routes.draw do
     end
   end
   
+  resources :posts do
+    resources :comments
+  end
+  
+  
   resources :sessions,      :only => [:new, :create, :destroy]
   resources :posts
   resources :relationships, :only => [:create, :destroy]
