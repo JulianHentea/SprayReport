@@ -20,7 +20,7 @@
 			    <%= render 'follow_form' if signed_in? %>
 			    <% if @user.posts.any? %>
 			      <h3>posts (<%= @user.posts.count %>)</h3>
-			      <ol class="microposts">
+			      <ol class="posts">
 			        <%= render @posts %>
 			      </ol>
 			      <%= will_paginate @posts %>
