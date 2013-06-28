@@ -1,32 +1,26 @@
 <% provide(:title, "Edit Profile") %>
+
 <!-- Main Area -->
 <div class="main-area">
 	<div class="container">
 		<div class="row">
+			<%= render 'shared/page_header' %>
+			<h1>Write a new story</br><small></small></h1>
 			<div class="span8">
-				<div class="page">
-					<h1>Edit your profile</br><small></small></h1>
+				<%= form_for(@user) do |f| %>
+				  <%= render 'shared/error_messages', :object => f.object %>
+				  <%= render 'fields', :f => f %>
+				  <div class="actions">
+				    <%= f.submit "Update" %>
+				  </div>
+				<% end %>
 
-					<div class="row">
-					  <div class="span6 offset3">
-					    <%= form_for(@user) do |f| %>
-							  <%= render 'shared/error_messages', :object => f.object %>
-							  <%= render 'fields', :f => f %>
-							  <div class="actions">
-							    <%= f.submit "Update" %>
-							  </div>
-							<% end %>
-
-							<div>
-							  <%= gravatar_for @user %>
-							  <a href="http://gravatar.com/emails" target=_blank>change</a>
-							</div>
-					  </div>
-					</div>
-
+				<div>
+				  <%= gravatar_for @user %>
+				  <a href="http://gravatar.com/emails" target=_blank>change</a>
 				</div>
 			</div>
 		</div>
 	</div>
-<!-- End Main Area -->
 </div>
+<!-- End Main Area -->

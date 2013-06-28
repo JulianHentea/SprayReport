@@ -1,25 +1,20 @@
-<table summary="Information about following/followers">
-  <tr>
-    <td class="main">
-      <h1><%= @title %></h1>
-      
-      <% if @users.any? %>
-        <ul class="users">
-          <%= render @users %>
-        </ul>  
-        <%= will_paginate @users %>
-      <% end %>
-    </td>
-    <td class="sidebar round">
-      <strong>Name</strong> <%= @user.name %><br />
-      <strong>URL</strong> <%= link_to user_path(@user), @user %><br />
-      <strong>posts</strong> <%= @user.posts.count %>
-      <%= render 'shared/stats' %>
-      <% if @users.any? %>
-        <% @users.each do |user| %>
-          <%= link_to gravatar_for(user, :size => 30), user %>
-        <% end %>
-      <% end %>
-    </td>
-  </tr>
-</table>
+<!-- End Main Area -->
+
+</div>
+<div class="main-area">
+	<div class="container">
+		<div class="row">
+			<%= render 'shared/page_header' %>
+			<div class="span8">
+			<%= will_paginate %>
+				<div class="all-users-list">
+						<% if @users.any? %>
+					<ul class="users">
+					<%= render @users %>
+					</ul>
+				</div>
+			<%= will_paginate %>
+			<% end %>
+		</div>
+	</div>
+</div>

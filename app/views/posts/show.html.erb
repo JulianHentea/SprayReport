@@ -1,34 +1,19 @@
+<!-- End Main Area -->
 
-<!-- Main Area -->
+</div>
 <div class="main-area">
 	<div class="container">
 		<div class="row">
+			<%= render 'shared/page_header' %>
 			<div class="span8">
-
-				<h1>Story time  <small></small></h1>
-
-				<div class="row">
-
-					<div class="span8">
-
-						<div class="page">
-							<h1> <%= @post.title %> </h1>
-							<p><%= @post.content %> </p>
-Tags: <%= raw @post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
-							<h3>Comments (<%= @post.comments.size %>)</h3>
-							<%= render partial: 'posts/comment', collection: @post.comments %>
-							<%= render partial: 'posts/comments/form' %>
-							<p><%= link_to "<< Back to Stories List", posts_path %></p>
-
-						</div>
-
-					</div>
-
-				</div>
-
+				<h1> <%= @post.title %> </h1>
+				<p><%= @post.content %> </p>
+				Tags: <%= raw @post.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %>
+				<h3>Comments (<%= @post.comments.size %>)</h3>
+				<%= render partial: 'posts/comment', collection: @post.comments %>
+				<%= render partial: 'posts/comments/form' %>
+				<p><%= link_to "<< Back to Stories List", posts_path %></p>
 			</div>
-
 		</div>
 	</div>
-<!-- End Main Area -->
 </div>

@@ -3,27 +3,18 @@
 <div class="main-area">
 	<div class="container">
 		<div class="row">
+			<%= render 'shared/page_header' %>
+			<h1>Write a new story</br><small></small></h1>
 			<div class="span8">
-				<div class="page">
-					<h1>Write a new story</br><small>Create a profile and share your climbing stories!</small></h1>
-
-					<div class="row">
-					  <div class="span6 offset1">
-					    <%= form_for(@post) do |f| %>
-							<%= render 'shared/error_messages', :object => f.object %>
-							<p>
-							<%= f.text_field :title, placeholder: "Enter a title..." %>
-							</p>
-							<p><%= f.text_area :content, placeholder: "Compose new a new story..." %></p>
-							<p><%= f.text_field :tag_list, placeholder: "Tags (separated by commas)" %></p>
-							<%= f.submit "Save your story", class: "btn btn-large btn-primary" %>
-						<% end %>
-					  </div>
-					</div>
-
-				</div>
+					<%= form_for(@post) do |f| %>
+					<%= render 'shared/error_messages', :object => f.object %>
+					<p><%= f.text_field :title, placeholder: "Enter a title..." %>	</p>
+					<p><%= f.text_area :content, placeholder: "Compose new a new story..." %></p>
+					<p><%= f.text_field :tag_list, placeholder: "Tags (separated by commas)" %></p>
+					<%= f.submit "Save your story", class: "btn btn-large btn-primary" %>
+				<% end %>
 			</div>
 		</div>
 	</div>
-<!-- End Main Area -->
 </div>
+<!-- End Main Area -->

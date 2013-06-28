@@ -11,8 +11,8 @@ namespace :db do
 end
 
 def make_users
-  admin = User.create!(:name => "Example User",
-                       :email => "example@example.com",
+  admin = User.create!(:name => "Julian Hentea",
+                       :email => "julian@atomikagency.com",
                        :password => "foobar",
                        :password_confirmation => "foobar",
                         )
