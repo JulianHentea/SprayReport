@@ -1,3 +1,4 @@
+if ENV["RAILS_GROUPS"] != "assets" #avoid heroku deploy error
 Pony.options = {
   from: "dvc.send.email@gmail.com",
   via: :smtp,
@@ -12,3 +13,4 @@ Pony.options = {
     enable_starttls_auto: true,
   },
 }
+end 
